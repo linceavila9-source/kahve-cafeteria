@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Kahve Panamá Coffee — Pide en línea</title>
+<meta name="theme-color" content="#2B1A12"><link rel="icon" href="assets/logo.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&family=Lora:ital,wght@0,500;1,500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+<link rel="stylesheet" href="css/styles.css"></head><body>
+<header class="top"><img class="lg" src="assets/logo.jpg" alt="Kahve Panamá Coffee"><button id="bchip" class="chip">📍 Elegir sucursal</button><button id="cartb" class="cartb" aria-label="Carrito">🛒<span id="bdg" class="bdg" hidden>0</span></button></header>
+<section class="hero"><h1>Kahve</h1><p>Café hecho con amor en cada sorbo. <span id="hb">Elige tu sucursal para empezar tu pedido.</span></p></section>
+<nav class="cats" id="cats"></nav>
+<main class="wrap" id="menu"></main>
+<section class="wrap sec" id="sucursales"><h2>Encuentra tu Kahve</h2><p class="sub">Todos los días de 7:30 am a 8:30 pm · Pet friendly 🐶</p>
+<div class="mapg"><div id="blist"></div><div id="map"></div></div></section>
+<section class="rev" id="opina"><div class="in"><h2>Opina y califica</h2>
+<p class="m">Cuéntanos cómo fue tu experiencia en Kahve. Tu opinión es anónima y se muestra públicamente a toda la comunidad.</p>
+<form id="ff"><label class="l">¿Cuántas estrellas le darías a tu experiencia?</label><div class="stars" id="stars"></div>
+<label class="l">¿En qué sucursal estuviste?</label><select name="sucursal" id="fsuc"></select>
+<label class="l">¿Cómo te enteraste de nosotros?</label><select name="fuente" required><option value="" disabled selected>Selecciona una opción</option><option>Instagram / redes sociales</option><option>Me lo recomendó un amigo</option><option>Pasé por la sucursal</option><option>Google Maps</option></select>
+<label class="l">¿Qué te pareció el café y la comida?</label><div data-g="comida"><button type="button" class="ch">Excelente</button><button type="button" class="ch">Muy bueno</button><button type="button" class="ch">Bueno</button><button type="button" class="ch">Regular</button><button type="button" class="ch">Malo</button></div>
+<label class="l">¿Algún consejo sobre nuestros productos?</label><textarea name="consejoComida" rows="2" placeholder="Escribe aquí…"></textarea>
+<label class="l">¿Qué te pareció la atención y el ambiente?</label><textarea name="atencion" rows="2" placeholder="Escribe aquí…"></textarea>
+<label class="l">¿Qué opinas de nuestros precios?</label><div data-g="precios"><button type="button" class="ch">Muy elevados</button><button type="button" class="ch">Costoso</button><button type="button" class="ch">Accesibles</button><button type="button" class="ch">Regular</button><button type="button" class="ch">Barato</button></div>
+<label class="l">Alias (opcional)</label><input type="text" name="alias" maxlength="24" placeholder="Anónimo" style="background:#3a2417;color:#fff;border-color:#6b4731">
+<button class="btn or" type="submit">Enviar opinión anónima</button><p id="thx" class="m" hidden>¡Gracias! Tu opinión ya es visible para todos. ☕</p></form>
+<h3 style="margin-top:40px;font-size:1.8rem">Opiniones recientes</h3><p id="sync" class="m" style="font-size:.8rem" hidden></p><div id="fbl"></div><p id="fe" class="m">Aún no hay opiniones. ¡Sé el primero!</p></div></section>
+<footer><p>© <span id="yr"></span> Kahve Panamá Coffee · Coronado · Penonomé · Santiago<br>Fotos de stock: <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a><br><a href="https://www.instagram.com/kahvecoffee_" target="_blank" rel="noopener">Instagram @kahvecoffee_</a><a href="https://www.facebook.com/profile.php?id=100087510159774" target="_blank" rel="noopener">Facebook</a></p></footer>
+<div id="ovl" class="ov" hidden></div><div id="shade" class="shade" hidden></div>
+<aside id="dr" class="dr" aria-hidden="true"></aside><div id="toast" class="toast"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
+<script src="js/app.js"></script></body></html>
