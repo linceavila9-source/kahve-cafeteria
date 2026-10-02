@@ -103,3 +103,15 @@ body{background-image:url(../assets/pattern-light.svg);background-size:280px}
 footer{background-image:url(../assets/pattern-light.svg);background-size:280px}
 .hero:after{content:"☕";position:absolute;right:6%;bottom:-18px;font-size:7rem;opacity:.07;transform:rotate(-14deg)}
 @media(max-width:480px){body,.cats,.hero,.rev,footer{background-size:200px}}
+
+/* Menú por secciones */
+#menu{scroll-margin-top:128px;min-height:50vh}
+.cats button.all{border-color:var(--oro);background:var(--oro);color:var(--esp)}
+.cats button.all.on{background:var(--esp);border-color:var(--esp);color:var(--oro)}
+/* Mismos colores en computador y celular: sin modo oscuro automático del navegador */
+:root{color-scheme:light only}
+html{scrollbar-color:#4A2E20 #F6EBD9}
+::-webkit-scrollbar{width:12px;height:12px}::-webkit-scrollbar-track{background:#F6EBD9}
+::-webkit-scrollbar-thumb{background:#4A2E20;border-radius:8px;border:2px solid #F6EBD9}
+select,option,input,textarea{color-scheme:light only}
+.rev select option{background:#3a2417;color:#fff}
