@@ -11,7 +11,7 @@ const FIREBASE_CONFIG={
 const BRANCHES=[ // coordenadas tomadas de tus enlaces de Google Maps
 {id:"coronado",name:"Coronado",zone:"Chame, Panamá Oeste",lat:8.5475747,lng:-79.9108171,wa:"50700000000",maps:"https://maps.app.goo.gl/vQfoGTvLGZr36mMk9",hours:"7:30 am – 8:30 pm"},
 {id:"penonome",name:"Penonomé",zone:"Penonomé, Coclé",lat:8.4921424,lng:-80.375265,wa:"50700000000",maps:"https://maps.app.goo.gl/4HjBuaHj9h99CAyt8",hours:"7:30 am – 8:30 pm"},
-{id:"santiago",name:"Santiago",zone:"Santiago, Veraguas",lat:8.1021169,lng:-80.9683738,wa:"50764163179",maps:"https://maps.app.goo.gl/7vY5nwgrY3MatQeu8",hours:"7:30 am – 8:30 pm"}];
+{id:"santiago",name:"Santiago",zone:"Santiago, Veraguas",lat:8.1021169,lng:-80.9683738,wa:"50700000000",maps:"https://maps.app.goo.gl/7vY5nwgrY3MatQeu8",hours:"7:30 am – 8:30 pm"}];
 const PAGO={yappy:"Yappy al 6000-0000 (Kahve Panamá Coffee)"};
 /* Precios de ejemplo: reemplázalos por los reales. img: usa data-URI, archivo local o URL de stock. */
 const IM={mer:"assets/tartaleta-merengue.jpg",fra:"assets/tartaleta-frambuesa.jpg",man:"assets/tartaleta-manzana.jpg",fp:"assets/pumpkin-frappe.jpg",lt:"assets/pumpkin-latte.jpg",ic:"assets/pumpkin-iced.jpg",};
@@ -71,9 +71,11 @@ function paintB(){const b=B();$("#bchip").textContent=b?"📍 Kahve "+b.name+" �
 $("#bchip").onclick=()=>pickBranch(false);
 /* ============ MENÚ ============ */
 const thumb=i=>i.i?`<img class="ph" src="${i.i}" alt="${esc(i.n)}" loading="lazy" onerror="imgFail(this)">`:`<div class="ph no" aria-hidden="true">${i.e}</div>`;
-function renderMenu(){$("#cats").innerHTML=MENU.map((m,x)=>`<button class="${x?"":"on"}" data-c="${m.k}">${m.t}</button>`).join("");
+let cat="cafe"; // "cafe" abre en Café; cambia a "all" para abrir en Menú completo
+function showCat(k,scroll){cat=k;document.querySelectorAll("#cats button").forEach(b=>b.classList.toggle("on",b.dataset.c===k));document.querySelectorAll("#menu .sec").forEach(s=>s.hidden=!(k==="all"||s.id==="s-"+k));if(scroll)document.getElementById("menu").scrollIntoView({behavior:"smooth"});const on=document.querySelector("#cats .on");if(on)on.scrollIntoView({inline:"center",block:"nearest",behavior:"smooth"})}
+function renderMenu(){$("#cats").innerHTML=`<button class="all" data-c="all">🍽️ Menú completo</button>`+MENU.map(m=>`<button data-c="${m.k}">${m.t}</button>`).join("");
 $("#menu").innerHTML=MENU.map(m=>`<section class="sec" id="s-${m.k}"><h2>${m.t}</h2><p class="sub">${m.s}</p><div class="grid">${m.items.map(i=>`<button class="card" data-i="${esc(i.id)}">${thumb(i)}<span><b>${esc(i.n)}</b><small>${esc(i.d||"")}</small><span class="pr">Desde ${money(i.p)}</span></span></button>`).join("")}</div></section>`).join("")}
-$("#cats").onclick=e=>{const b=e.target.closest("button");if(!b)return;document.querySelectorAll("#cats button").forEach(x=>x.classList.toggle("on",x===b));document.getElementById("s-"+b.dataset.c).scrollIntoView()};
+$("#cats").onclick=e=>{const b=e.target.closest("button");if(b)showCat(b.dataset.c,true)};showCat(cat,false);
 $("#menu").onclick=e=>{const b=e.target.closest("[data-i]");if(b)openItem(b.dataset.i)};
 const all=()=>MENU.flatMap(m=>m.items);
 /* ============ MODAL DE PRODUCTO ============ */
