@@ -11,7 +11,7 @@ const FIREBASE_CONFIG={
 const BRANCHES=[ // coordenadas tomadas de tus enlaces de Google Maps
 {id:"coronado",name:"Coronado",zone:"Chame, Panamá Oeste",lat:8.5475747,lng:-79.9108171,wa:"50700000000",maps:"https://maps.app.goo.gl/vQfoGTvLGZr36mMk9",hours:"7:30 am – 8:30 pm"},
 {id:"penonome",name:"Penonomé",zone:"Penonomé, Coclé",lat:8.4921424,lng:-80.375265,wa:"50700000000",maps:"https://maps.app.goo.gl/4HjBuaHj9h99CAyt8",hours:"7:30 am – 8:30 pm"},
-{id:"santiago",name:"Santiago",zone:"Santiago, Veraguas",lat:8.1021169,lng:-80.9683738,wa:"50700000000",maps:"https://maps.app.goo.gl/7vY5nwgrY3MatQeu8",hours:"7:30 am – 8:30 pm"}];
+{id:"santiago",name:"Santiago",zone:"Santiago, Veraguas",lat:8.1021169,lng:-80.9683738,wa:"50764163179",maps:"https://maps.app.goo.gl/7vY5nwgrY3MatQeu8",hours:"7:30 am – 8:30 pm"}];
 const PAGO={yappy:"Yappy al 6000-0000 (Kahve Panamá Coffee)"};
 /* Precios de ejemplo: reemplázalos por los reales. img: usa data-URI, archivo local o URL de stock. */
 const IM={mer:"assets/tartaleta-merengue.jpg",fra:"assets/tartaleta-frambuesa.jpg",man:"assets/tartaleta-manzana.jpg",fp:"assets/pumpkin-frappe.jpg",lt:"assets/pumpkin-latte.jpg",ic:"assets/pumpkin-iced.jpg",};
